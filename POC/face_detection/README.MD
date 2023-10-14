@@ -1,4 +1,9 @@
-first run the following commands
+first do the following
 
+1-  install cmake
+    sudo apt install cmake
 
-pip install -r requirements.txt
+2- install python pip
+
+3- install requirements.txt
+    pip install -r requirements.txt
