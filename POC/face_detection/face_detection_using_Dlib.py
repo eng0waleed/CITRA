@@ -8,7 +8,7 @@ if not os.path.exists('detected_faces'):
     os.makedirs('detected_faces')
 
 # Open the video
-cap = cv2.VideoCapture('http://192.168.0.106:5000/video_feed')
+cap = cv2.VideoCapture('http://192.168.100.154:5003/video_feed')
 
 # Face counter
 face_count = 0

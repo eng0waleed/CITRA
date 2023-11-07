@@ -23,7 +23,7 @@ emotion_classifier = load_model(emotion_model_path, compile=False)
 emotion_target_size = emotion_classifier.input_shape[1:3]
 
 # Directory containing the cropped face images
-face_images_dir = 'detected_faces'
+face_images_dir = '../face_detection/detected_faces'
 
 # Function to preprocess the face image
 def preprocess_face(face_image):
@@ -36,7 +36,7 @@ def preprocess_face(face_image):
 
 # Process each image in the directory
 for filename in os.listdir(face_images_dir):
-    if filename.endswith(".png") or filename.endswith(".jpeg"):
+    if filename.endswith(".jpg") or filename.endswith(".jpeg"):
         # Load the cropped face image
         face_image = cv2.imread(os.path.join(face_images_dir, filename))
 
