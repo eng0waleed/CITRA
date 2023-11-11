@@ -2,6 +2,7 @@ import cv2
 import face_recognition
 import os
 import time
+from google.cloud import storage
 
 # Ensure a directory exists to store the cropped face images
 if not os.path.exists('detected_faces'):
@@ -35,6 +36,14 @@ while True:
         # Save the cropped face
         filename = f"detected_faces/face_{face_count}.jpg"
         cv2.imwrite(filename, cropped_face)
+
+        #copy to google cloud using json creds
+        storage_client = storage.Client.from_service_account_json(
+        'mx-project-404820-acb89a9e22e1.json')
+        bucket = storage_client.get_bucket("kfupmmx")
+        blob = bucket.blob(f"detected_faces/face_{face_count}.jpg")
+        blob.upload_from_filename(filename)
+
 end_time = time.time()
 
 # Release the video capture object
