@@ -43,6 +43,7 @@ while True:
         bucket = storage_client.get_bucket("kfupmmx")
         blob = bucket.blob(f"detected_faces/face_{face_count}.jpg")
         blob.upload_from_filename(filename)
+        print("File uploaded to cloud storage file: ", filename)
 
 end_time = time.time()
 
