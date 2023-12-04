@@ -31,16 +31,16 @@ const CITRADashboard = () => {
   }, []);
 
   return (
-    <Grid container spacing={2}>
-      <Grid item xs={12}>
-        <Paper elevation={3} style={{ padding: '20px' }}>
-          <Typography variant="h4" gutterBottom>
+    <Grid container spacing={2} justifyContent="center" alignItems="center" style={{ height: '100vh' }}>
+      <Grid item style={{ width: '50vw', height: '50vh' }}>
+        <Paper elevation={3} style={{ padding: '50px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+          <Typography variant="h4" gutterBottom style={{ textAlign: 'center' }}>
             CITRA Dashboard
           </Typography>
           {chartData.datasets.length > 0 ? (
             <Pie data={chartData} />
           ) : (
-            <Typography variant="subtitle1">Loading data...</Typography>
+            <Typography variant="subtitle1" style={{ textAlign: 'center' }}>Loading data...</Typography>
           )}
         </Paper>
       </Grid>
